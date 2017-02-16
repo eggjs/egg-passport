@@ -1,0 +1,58 @@
+{
+  "name": "egg-passport",
+  "version": "0.0.0",
+  "description": "passport plugin for egg, base on passportjs",
+  "eggPlugin": {
+    "name": "passport",
+    "dependencies": [
+      "session"
+    ]
+  },
+  "keywords": [
+    "egg",
+    "plugin"
+  ],
+  "files": [
+    "app",
+    "config",
+    "lib",
+    "app.js"
+  ],
+  "dependencies": {
+    "koa-passport": "^1.4.0"
+  },
+  "devDependencies": {
+    "autod": "^2.7.1",
+    "egg": "^0.12.0",
+    "egg-bin": "^2.2.0",
+    "egg-ci": "^1.1.0",
+    "egg-mock": "^3.0.0",
+    "eslint": "^3.15.0",
+    "eslint-config-egg": "^3.2.0",
+    "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint config test lib app *.js",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "4, 6, 7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eggjs/egg-passport.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eggjs/egg/issues"
+  },
+  "homepage": "https://github.com/eggjs/egg-passport#readme",
+  "author": "fengmk2",
+  "license": "MIT"
+}
