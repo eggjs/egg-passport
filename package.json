@@ -1,6 +1,6 @@
 {
   "name": "egg-passport",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "passport plugin for egg, base on passportjs",
   "eggPlugin": {
     "name": "passport",
@@ -10,7 +10,10 @@
   },
   "keywords": [
     "egg",
-    "plugin"
+    "egg-plugin",
+    "eggPlugin",
+    "egg-passport",
+    "passport"
   ],
   "files": [
     "app",
@@ -19,20 +22,25 @@
     "app.js"
   ],
   "dependencies": {
-    "koa-passport": "^1.4.0"
+    "co": "^4.6.0",
+    "debug": "^2.6.1",
+    "passport": "^0.3.2"
   },
   "devDependencies": {
     "autod": "^2.7.1",
     "egg": "^0.12.0",
     "egg-bin": "^2.2.0",
-    "egg-ci": "^1.1.0",
     "egg-mock": "^3.0.0",
+    "egg-passport-github": "*",
+    "egg-passport-twitter": "*",
+    "egg-passport-weibo": "*",
     "eslint": "^3.15.0",
     "eslint-config-egg": "^3.2.0",
+    "passport-localapikey": "^0.0.3",
     "supertest": "^3.0.0"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   },
   "scripts": {
     "test": "npm run lint && npm run test-local",
@@ -41,9 +49,6 @@
     "lint": "eslint config test lib app *.js",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
-  },
-  "ci": {
-    "version": "4, 6, 7"
   },
   "repository": {
     "type": "git",
