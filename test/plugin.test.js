@@ -1,7 +1,6 @@
 'use strict';
 
 const assert = require('assert');
-const request = require('supertest');
 const mm = require('egg-mock');
 
 describe('test/plugin.test.js', () => {
@@ -18,7 +17,7 @@ describe('test/plugin.test.js', () => {
   afterEach(mm.restore);
 
   it('should show login tips when user unauthenticated', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .expect(/Login with/)
       .expect(200);
@@ -26,7 +25,7 @@ describe('test/plugin.test.js', () => {
 
   it('should show authenticated user info', () => {
     app.mockUser();
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .expect(/Authenticated user:/)
       .expect(/mock displayName \/ 10086/)
@@ -45,7 +44,7 @@ describe('test/plugin.test.js', () => {
   });
 
   it('should redirect to weibo oauth url', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/passport/weibo')
       .expect(/Found/)
       .expect('Location', /https:\/\/api.weibo.com\/oauth2\/authorize\?response_type=code&redirect_uri=/)
@@ -53,7 +52,7 @@ describe('test/plugin.test.js', () => {
   });
 
   it('should GET callback also redirect to weibo oauth url', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/passport/weibo/callback')
       .expect(/Found/)
       .expect('Location', /https:\/\/api.weibo.com\/oauth2\/authorize\?response_type=code&redirect_uri=/)
@@ -61,15 +60,14 @@ describe('test/plugin.test.js', () => {
   });
 
   it('should 401 when apikey missing', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/passport/localapikey')
-      .expect(/<title>AuthenticationError Error<\/title>/)
       .expect(/Unauthorized/)
       .expect(401);
   });
 
   it('should return 401 json format when apikey missing', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/passport/localapikey')
       .set('Accept', 'application/json')
       .expect({
@@ -80,7 +78,7 @@ describe('test/plugin.test.js', () => {
 
   it('should auth success and redirect', function* () {
     let cookie;
-    yield request(app.callback())
+    yield app.httpRequest()
       .get('/passport/localapikey?apikey=eggapp')
       .expect('Location', '/')
       .expect(res => {
@@ -89,7 +87,7 @@ describe('test/plugin.test.js', () => {
       .expect(302);
 
     assert(cookie);
-    yield request(app.callback())
+    yield app.httpRequest()
       .get('/')
       .set('Cookie', cookie)
       .expect(/Authenticated user/)

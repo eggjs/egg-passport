@@ -83,12 +83,12 @@ module.exports = app => {
 
 ### Verify and store user
 
-Use `app.passport.verify(function* (ctx, user) {})` hook:
+Use `app.passport.verify(async (ctx, user) => {})` hook:
 
 ```js
 // app.js
 module.exports = app => {
-  app.passport.verify(function* (ctx, user) {
+  app.passport.verify(async (ctx, user) => {
     // check user
     assert(user.provider, 'user.provider should exists');
     assert(user.id, 'user.id should exists');
@@ -101,16 +101,16 @@ module.exports = app => {
     // provider | provider name, like github, twitter, facebook, weibo and so on
     // uid      | provider unique id
     // user_id  | current application user id
-    const auth = yield ctx.model.Authorization.findOne({
+    const auth = await ctx.model.Authorization.findOne({
       uid: user.id,
       provider: user.provider,
     });
-    const existsUser = yield ctx.model.User.findOne({ id: auth.user_id });
+    const existsUser = await ctx.model.User.findOne({ id: auth.user_id });
     if (existsUser) {
       return existsUser;
     }
     // call user service to register a new user
-    const newUser = yield ctx.service.user.register(user);
+    const newUser = await ctx.service.user.register(user);
     return newUser;
   });
 };
@@ -238,9 +238,9 @@ describe('mock user demo', () => {
 ### `app.mockUserContext([user])`: Mock a context instance with authenticated user
 
 ```js
-it('should get authenticated user and call service', function* () {
+it('should get authenticated user and call service', async () => {
   const ctx = app.mockUserContext();
-  const result = yield ctx.service.findUser({ id: ctx.user.id });
+  const result = await ctx.service.findUser({ id: ctx.user.id });
   assert(result.user.id === ctx.user.id);
 });
 ```

@@ -8,7 +8,6 @@ module.exports = {
      'benchmark',
    ],
   devdep: [
-    'egg',
     'egg-bin',
     'autod',
     'eslint',
@@ -17,5 +16,8 @@ module.exports = {
   ],
   exclude: [
     './test/fixtures',
+  ],
+  keep: [
+    'passport',
   ],
 };
