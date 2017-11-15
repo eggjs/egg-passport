@@ -22,25 +22,23 @@
     "app.js"
   ],
   "dependencies": {
-    "co": "^4.6.0",
-    "debug": "^2.6.1",
+    "debug": "^3.1.0",
     "passport": "^0.3.2"
   },
   "devDependencies": {
-    "autod": "^2.7.1",
-    "egg": "^1.0.0-rc.2",
-    "egg-bin": "^2.2.3",
-    "egg-mock": "^3.0.1",
+    "autod": "^3.0.1",
+    "egg": "next",
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1",
     "egg-passport-github": "*",
     "egg-passport-twitter": "*",
     "egg-passport-weibo": "*",
-    "eslint": "^3.16.1",
-    "eslint-config-egg": "^3.2.0",
-    "passport-localapikey": "^0.0.3",
-    "supertest": "^3.0.0"
+    "eslint": "^4.11.0",
+    "eslint-config-egg": "^5.1.1",
+    "passport-localapikey": "^0.0.3"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "scripts": {
     "test": "npm run lint && npm run test-local",
