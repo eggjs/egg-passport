@@ -1,6 +1,6 @@
 {
   "name": "egg-passport",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "passport plugin for egg, base on passportjs",
   "eggPlugin": {
     "name": "passport",
@@ -27,13 +27,13 @@
   },
   "devDependencies": {
     "autod": "^3.0.1",
-    "egg": "next",
-    "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1",
+    "egg": "^2.0.0",
+    "egg-bin": "^4.3.7",
+    "egg-mock": "^3.14.0",
     "egg-passport-github": "*",
     "egg-passport-twitter": "*",
     "egg-passport-weibo": "*",
-    "eslint": "^4.11.0",
+    "eslint": "^4.13.1",
     "eslint-config-egg": "^5.1.1",
     "passport-localapikey": "^0.0.3"
   },

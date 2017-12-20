@@ -1,4 +1,10 @@
 
+2.0.1 / 2017-12-20
+==================
+
+**fix**
+  * [[`0270671`](https://github.com/eggjs/egg-passport/commit/0270671078dd0193e81568cfa48f3ac397845c30)] - fix: debug log should use ctx.url (#6) (TZ | 天猪 <<atian25@qq.com>>)
+
 2.0.0 / 2017-11-15
 ==================
 
