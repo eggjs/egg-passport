@@ -72,6 +72,15 @@ module.exports = app => {
   // app.get('/passport/github', github);
   // app.get('/passport/github/callback', github);
 
+  // for some special case,such as egg-passport-local strategy,post method is required
+  app.passport.mount('local', {
+    method: 'post'
+  });
+  // this is a passport router helper, it's equal to the below codes
+  //
+  // const local = app.passport.authenticate('local');
+  // app.post('/passport/local', local);
+
   // custom options.login url and options.successRedirect
   app.passport.mount('twitter', {
     loginURL: '/account/twitter',
