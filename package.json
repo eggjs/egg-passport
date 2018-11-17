@@ -19,9 +19,11 @@
     "app",
     "config",
     "lib",
-    "app.js"
+    "app.js",
+    "index.d.ts"
   ],
   "dependencies": {
+    "@types/passport": "^0.4.7",
     "debug": "^3.1.0",
     "passport": "^0.3.2"
   },
