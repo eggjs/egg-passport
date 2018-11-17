@@ -25,6 +25,9 @@ declare module 'egg' {
       verify(fn: (ctx: Context, user: IVerifyUser) => Promise<any>);
 
       mount(strategy: string, options?: IMountOptions): void;
+
+      authenticate(strategy: string | string[]): any;
+      authenticate(strategy: string | string[], options: passport.AuthenticateOptions): any;
     }
   }
 
