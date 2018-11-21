@@ -7,22 +7,17 @@ interface IMountOptions {
   callbackURL: string;
 }
 
-interface IVerifyUser {
-  username: string;
-  password: string;
-}
-
 declare module 'egg' {
   // extend app
   interface Application {
     passport: {
-      serializeUser<TUser>(fn: (ctx: Context, user: TUser) => Promise<any>)
+      serializeUser<TUser = {}>(fn: (ctx: Context, user: TUser) => Promise<any>)
       serializeUser<TUser, TID>(fn: (user: TUser, done: (err: any, id?: TID) => void) => void): void;
 
       deserializeUser<TID>(fn: (ctx: Context, id: TID) => Promise<any>)
       deserializeUser<TUser, TID>(fn: (id: TID, done: (err: any, user?: TUser) => void) => void): void;
 
-      verify(fn: (ctx: Context, user: IVerifyUser) => Promise<any>);
+      verify(fn: (ctx: Context, user: any) => Promise<any>);
 
       mount(strategy: string, options?: IMountOptions): void;
 
