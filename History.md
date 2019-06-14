@@ -1,4 +1,9 @@
 
+2.0.2 / 2019-06-14
+==================
+
+  * [[`ed1eca2`](https://github.com/eggjs/egg-passport/commit/ed1eca2b19d0a4b3492f0f24dca3ddb17ad3afaf)] - feat: allow pass full qualified callback url to passport and make sure the authentication generate the correct redirect_uri. (#11)
+
 2.0.1 / 2017-12-20
 ==================
 
