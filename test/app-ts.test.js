@@ -62,7 +62,7 @@ describe('test/app-ts.test.js', () => {
       const ctx = app.mockUserContext();
       assert(ctx.user);
       assert(ctx.user.id === '10086');
-      assert(ctx.user.provider = 'mock');
+      assert(ctx.user.provider === 'mock');
       assert(ctx.isAuthenticated() === true);
 
       const user = yield ctx.service.user.find();

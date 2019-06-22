@@ -11,11 +11,11 @@ declare module 'egg' {
   // extend app
   interface Application {
     passport: {
-      serializeUser<TUser = any>(fn: (ctx: Context, user: TUser) => Promise<any>)
-      serializeUser<TUser, TID>(fn: (user: TUser, done: (err: any, id?: TID) => void) => void): void;
+      serializeUser<TUser = any, TID = any>(fn: (ctx: Context, user: TUser) => Promise<TID>)
+      serializeUser<TUser = any, TID = any>(fn: (user: TUser, done: (err: any, id?: TID) => void) => void): void;
 
-      deserializeUser<TUser = any>(fn: (ctx: Context, user: TUser) => Promise<any>)
-      deserializeUser<TUser, TID>(fn: (id: TID, done: (err: any, user?: TUser) => void) => void): void;
+      deserializeUser<TUser = any, TID = any>(fn: (ctx: Context, id: TID) => Promise<TUser>)
+      deserializeUser<TUser = any, TID = any>(fn: (id: TID, done: (err: any, user?: TUser) => void) => void): void;
 
       verify(fn: (ctx: Context, user: any) => Promise<any>);
 
@@ -35,31 +35,21 @@ declare module 'egg' {
     isAuthenticated(): boolean;
   }
 
+  interface EggPassportCommonConfig {
+    key: string;
+    secret: string;
+  }
+
   // extend your config
   interface EggAppConfig {
     passportLocal?: {
-      usernameField: string;
-      passwordField: string;
+      usernameField?: string;
+      passwordField?: string;
     },
-    passportWeibo?: {
-      key: string;
-      secret: string;
-    },
-    passportGithub?: {
-      key: string;
-      secret: string;
-    },
-    passportTwitter?: {
-      key: string;
-      secret: string;
-    },
-    passportTaobao?: {
-      key: string;
-      secret: string;
-    },
-    passportBitbucket?: {
-      key: string;
-      secret: string;
-    }
+    passportWeibo?: EggPassportCommonConfig,
+    passportGithub?: EggPassportCommonConfig,
+    passportTwitter?: EggPassportCommonConfig,
+    passportTaobao?: EggPassportCommonConfig,
+    passportBitbucket?: EggPassportCommonConfig
   }
 }
