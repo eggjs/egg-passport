@@ -15,7 +15,6 @@ interface UserIdentity {
 export default (app: Application) => {
   app.passport.verify(async (_ctx, user: UserIdentity) => {
     if (user.provider === 'localapikey') {
-      console.info(user.apikey);
       if (user.apikey === 'eggapp') {
         user.name = 'eggapp';
         user.displayName = 'my name is egg';
