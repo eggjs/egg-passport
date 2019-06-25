@@ -31,15 +31,6 @@ describe('test/app-ts.test.js', () => {
 
     after(async () => {
       await app.close();
-      assert.deepStrictEqual(app._app.stages, [
-        'configWillLoad',
-        'configDidLoad',
-        'didLoad',
-        'willReady',
-        'didReady',
-        'serverDidReady',
-        'beforeClose',
-      ]);
     });
 
     it('should show login tips when user unauthenticated', () => {
