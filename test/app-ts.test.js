@@ -12,11 +12,11 @@ const baseDir = path.resolve(__dirname, './fixtures/app-ts');
 describe('test/app-ts.test.js', () => {
   before(async () => {
     await runscript('ets', { cwd: baseDir });
-    await runscript(`tsc -p ${baseDir}/tsconfig.json`, { cwd: baseDir });
     const dest = path.join(baseDir, 'node_modules/egg-passport');
     await rimraf(dest);
     await mkdirp(path.dirname(dest));
     fs.symlinkSync(path.resolve(__dirname, '../'), dest);
+    await runscript(`tsc -p ${baseDir}/tsconfig.json`, { cwd: baseDir });
   });
 
   describe('compiler code', () => {
