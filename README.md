@@ -49,7 +49,7 @@ exports.passportGithub = {
   secret: 'my oauth2 clientSecret',
 };
 
-exports.passportTwitter: {
+exports.passportTwitter = {
   key: 'my oauth1 consumerKey',
   secret: 'my oauth1 consumerSecret',
 };
