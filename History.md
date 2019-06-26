@@ -1,4 +1,13 @@
 
+2.1.0 / 2019-06-26
+==================
+
+**features**
+  * [[`1fa1a8e`](http://github.com/eggjs/egg-passport/commit/1fa1a8e8e2d0cf7a9ef1034cfc26d27e07d5bf9c)] - feat: add index.d.ts for types supporting (#8) (vagusX <<vagusX@users.noreply.github.com>>)
+
+**fixes**
+  * [[`465a040`](http://github.com/eggjs/egg-passport/commit/465a040736f1e97c50db67746abd2402a08a0e75)] - fix: fix ci (#12) (吖猩 <<whxaxes@gmail.com>>)
+
 2.0.2 / 2019-06-14
 ==================
 
