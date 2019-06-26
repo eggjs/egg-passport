@@ -1,4 +1,5 @@
 import { Application } from 'egg';
+import { Strategy } from 'passport-localapikey';
 
 interface UserIdentity {
   provider: string;
@@ -12,7 +13,7 @@ interface UserIdentity {
 }
 
 export default (app: Application) => {
-  app.passport.verify(async (ctx, user: UserIdentity) => {
+  app.passport.verify(async (_ctx, user: UserIdentity) => {
     if (user.provider === 'localapikey') {
       if (user.apikey === 'eggapp') {
         user.name = 'eggapp';
@@ -39,4 +40,17 @@ export default (app: Application) => {
     user.currentUrl = ctx.url;
     return user;
   });
+
+  // register localapikey strategy into `app.passport`
+  // must require `req` params
+  app.passport.use('localapikey', new Strategy({ passReqToCallback: true }, (req, apikey, done) => {
+    // format user
+    const user = {
+      provider: 'localapikey',
+      id: apikey,
+      apikey,
+    };
+    // let passport do verify and call verify hook
+    app.passport.doVerify(req, user, done);
+  }));
 }
