@@ -2,9 +2,9 @@ import { Context, Request } from 'egg';
 
 import { AuthenticateOptions, Strategy, Authenticator } from 'passport';
 
-interface IMountOptions {
-  loginURL: string;
-  callbackURL: string;
+interface IMountOptions extends AuthenticateOptions {
+  loginURL?: string;
+  callbackURL?: string;
 }
 
 interface EggPassport extends Authenticator {
