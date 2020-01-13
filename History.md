@@ -1,4 +1,10 @@
 
+2.1.1 / 2020-01-13
+==================
+
+**fixes**
+  * [[`9b93fa3`](http://github.com/eggjs/egg-passport/commit/9b93fa30906848d58c161f3a62a390ca5273eb65)] - fix: index.d.ts extends IMountOptions by AuthenticateOptions. (#13) (lightrabbit <<lightpacerabbit@gmail.com>>)
+
 2.1.0 / 2019-06-26
 ==================
 

@@ -1,6 +1,6 @@
 {
   "name": "egg-passport",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "passport plugin for egg, base on passportjs",
   "eggPlugin": {
     "name": "passport",
