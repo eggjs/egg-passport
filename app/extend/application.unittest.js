@@ -1,4 +1,5 @@
 'use strict';
+const createContext;
 
 module.exports = {
   /**
@@ -26,7 +27,7 @@ module.exports = {
       },
     }, user);
 
-    const createContext = this.createContext;
+    createContext = createContext || this.createContext;
     this.mm(this, 'createContext', (req, res) => {
       req.user = user;
       const ctx = createContext.call(this, req, res);
