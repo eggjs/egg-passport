@@ -1,5 +1,5 @@
 'use strict';
-const createContext;
+let createContext;
 
 module.exports = {
   /**
