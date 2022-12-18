@@ -30,7 +30,6 @@
   "devDependencies": {
     "egg": "^3.5.0",
     "egg-bin": "^5.5.0",
-    "egg-ci": "^2.2.0",
     "egg-mock": "^5.2.1",
     "egg-passport-github": "*",
     "egg-passport-twitter": "*",
@@ -44,10 +43,6 @@
   },
   "engines": {
     "node": ">=14.19.0"
-  },
-  "ci": {
-    "version": "14, 16, 18",
-    "os": "linux"
   },
   "scripts": {
     "test": "npm run lint && npm run test-local",
