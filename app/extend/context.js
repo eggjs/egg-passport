@@ -30,6 +30,7 @@ module.exports = {
   /**
    * Terminate an existing login session.
    *
+   * @param {...any} args
    * @api public
    */
   logout(...args) {

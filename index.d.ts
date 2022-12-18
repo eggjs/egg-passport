@@ -1,3 +1,4 @@
+import * as Egg from 'egg';
 import { Context, Request } from 'egg';
 
 import { AuthenticateOptions, Strategy, Authenticator } from 'passport';
@@ -61,3 +62,5 @@ declare module 'egg' {
     passportBitbucket?: EggPassportCommonConfig
   }
 }
+
+export = Egg;
